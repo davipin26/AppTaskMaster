@@ -14,8 +14,6 @@ export default function EditarPerfilScreen({ navigation, route }) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.titulo}>Editar Perfil</Text>
-
       <View style={styles.inputGroup}>
         <Text style={styles.label}>Nombre completo</Text>
         <TextInput 
@@ -52,14 +50,14 @@ export default function EditarPerfilScreen({ navigation, route }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#000000',
     padding: 20,
     justifyContent: 'center',
   },
   titulo: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#333333',
+    color: '#c8c5c5',
     marginBottom: 30,
     textAlign: 'center',
   },
@@ -69,11 +67,11 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#666666',
+    color: '#9a9999',
     marginBottom: 8,
   },
   input: {
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#dadbfb',
     borderRadius: 12,
     paddingVertical: 12,
     paddingHorizontal: 15,
@@ -82,7 +80,7 @@ const styles = StyleSheet.create({
     borderColor: '#e0e0e0',
   },
   botonGuardar: {
-    backgroundColor: '#9faef3',
+    backgroundColor: '#2d4acb',
     borderRadius: 12,
     paddingVertical: 14,
     alignItems: 'center',
@@ -100,7 +98,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   botonCancelarTexto: {
-    color: '#888888',
+    color: '#ff0707',
     fontSize: 15,
   },
 });

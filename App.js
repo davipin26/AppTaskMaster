@@ -4,7 +4,7 @@ import { NavigationContainer, useFocusEffect } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
-
+import { StatusBar } from 'expo-status-bar';
 import EditarPerfilScreen from './EditarPerfil';
 
 const Stack = createNativeStackNavigator();
@@ -60,17 +60,30 @@ function PerfilScreen({ navigation, route }) {
   );
 }
 
-function TabNavigator() {
+function TabNavegador() {
   return (
     <Tab.Navigator
       screenOptions={{
         tabBarActiveTintColor: '#9faef3',
         tabBarInactiveTintColor: '#888888',
-        tabBarStyle: { height: 60, paddingBottom: 8, paddingTop: 6 },
         headerTitleAlign: 'center',
+        backgroundColor: '#000000',
+        borderTopColor: '#222222',
+      tabBarStyle: { 
+        height: 60, 
+        paddingBottom: 8, 
+        paddingTop: 6,
+        backgroundColor: '#000000',
+        borderTopColor: '#222222',
+      },
+      headerStyle: {
+        backgroundColor: '#000000',
+
+      },
+      headerTintColor: '#ffffff',
       }}
     >
-      <Tab.Screen 
+    <Tab.Screen 
         name="Inicio" 
         component={HomeScreen} 
         options={{
@@ -80,7 +93,7 @@ function TabNavigator() {
             <Ionicons name="home-outline" size={size} color={color} />
           ),
         }}
-      />
+    />
       <Tab.Screen 
         name="PerfilTab" 
         component={PerfilScreen} 
@@ -98,27 +111,37 @@ function TabNavigator() {
 
 export default function App() {
   return (
+    <>
+    <StatusBar style="light" />
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen 
           name="MainTabs" 
-          component={TabNavigator} 
+          component={TabNavegador}
           options={{ headerShown: false }} 
         />
         <Stack.Screen 
           name="EditarPerfil" 
           component={EditarPerfilScreen} 
-          options={{ title: 'Editar Perfil' }} 
+          options={{ 
+            title: 'Editar Perfil', 
+            headerStyle:{ 
+              backgroundColor: '#000000',
+            },
+            headerTintColor: '#ffff',
+            headerTitleAlign: 'center',
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>
+  </>  
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#000000',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
@@ -132,38 +155,47 @@ const styles = StyleSheet.create({
     borderRadius: 100,
   },
   nombreContainer: {
-    backgroundColor: '#ffffff',
-    paddingVertical: 10,
+    backgroundColor: '#1e1e1e',
+    paddingVertical: 9,
     paddingHorizontal: 25,
     borderRadius: 16,
     alignItems: 'center',
-    elevation: 5, 
+    elevation: 7,
+    borderWidth: 0.6,
+    borderColor: '#ffff',
     margin: 10,
+    shadowColor: '#ffffff', 
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
   },
   nombreText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#333333',
+    color: '#ffffff',
   },
   emailContainer: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#1e1e1e',
     paddingVertical: 10,
     paddingHorizontal: 25,
     borderRadius: 16,
     alignItems: 'center',
-    elevation: 4, 
+    elevation: 7,
+    borderWidth: 0.6,
+    borderColor: '#ffff', 
     marginBottom: 6,
-    shadowColor: '#000', 
+    shadowColor: '#ffffff', 
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 8,
   },
   emailText: {
     fontSize: 14,
-    color: '#666666',
+    fontWeight: '600',
+    color: '#ffffff',
   },
   botonEditar: {
-    backgroundColor: '#9faef3',
+    backgroundColor: '#2d4acb',
     alignItems: 'center',
     borderRadius: 16,
     paddingVertical: 10,
@@ -179,7 +211,7 @@ const styles = StyleSheet.create({
   tituloHome: {
     fontSize: 18, 
     fontWeight: 'bold', 
-    color: '#333333',
+    color: '#ffffff',
     textAlign: 'center',
   },
 });
