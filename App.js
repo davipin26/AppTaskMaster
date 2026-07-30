@@ -215,5 +215,3 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
-
-//Hola si esta funcionando todo
